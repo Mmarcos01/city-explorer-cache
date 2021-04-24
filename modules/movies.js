@@ -4,7 +4,7 @@ const cache = require('./movie-cache.js');
 
 function getMovies(request, response) {
   const key = request.query.city;
-  if (cache[key] && (Date.now() - cache[key] [0]) < (1000*60*60*24*7)) {
+  if (cache[key] && (Date.now() - cache[key] [0]) < (1000*60*60*24*10)) {
     console.log('Cache hit movie');
     let prevResp = cache[key][1];
     response.status(200).send(prevResp);
